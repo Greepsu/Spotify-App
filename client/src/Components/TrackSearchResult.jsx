@@ -3,7 +3,7 @@ import React from 'react'
 //import style
 import "../styles/TrackSearchResult.css"
 
-export default function TrackSearchResult({ track, chooseTrack, likesTrack }) {
+export default function TrackSearchResult({ track, chooseTrack, addToPlaylist }) {
     const handlePlay = () => {
         chooseTrack(track)
     }
@@ -16,7 +16,7 @@ export default function TrackSearchResult({ track, chooseTrack, likesTrack }) {
                     <div className="track-artist" >{track.artist}</div>
                 </div>
             </div>
-            <button className="track-like" onClick={() => likesTrack(track)} >Add to likes</button>
+            <button className="track-like" onClick={() => addToPlaylist(track)} >Add to Playlist</button>
         </div>
     )
 }

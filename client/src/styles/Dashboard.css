@@ -4,17 +4,39 @@
     height: 97vh;
 }
 
+.dashboard-form {
+    display: flex;
+}
+
 .dashboard-input {
-    width: 100%;
+    width: 30%;
     font-size: 24px;
     padding: 10px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    outline: none;
 }
 
 .dashboard-songlist {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-content: center;
     flex-grow: 1;
     overflow-y: auto;
+    color: var(--lightWhite);
+}
+
+.dashboard-browsing-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 76px;
+}
+
+.likes {
+    color: white;
 }
 
 .lyrics {

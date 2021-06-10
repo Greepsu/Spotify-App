@@ -1,0 +1,11 @@
+.likes {
+    color: var(--white);
+    width: 50%;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.like {
+    cursor: pointer;
+}

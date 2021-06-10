@@ -6,6 +6,7 @@ import "../styles/Dashboard.css";
 //import Componnets
 import TrackSearchResult from "./TrackSearchResult";
 import Player from "./Player";
+import Likes from "./Likes";
 
 //Import Auth Hooks
 import useAuth from "../Hooks/useAuth";
@@ -22,18 +23,8 @@ export default function Dashboard({ code }) {
   const [searchResults, setSearchResults] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
   const [lyrics, setLyrics] = useState("");
-  const [likes, setLikes] = useState([]);
+  const [playlist, setPlaylist] = useState([]);
   const accessToken = useAuth(code);
-
-  const likesTrack = (track) => {
-    setLikes((trackList) => [...trackList, track]);
-
-    console.log("track title:  " + track.title)
-
-    likes.map(like => {
-      return console.log("Likes track title " + like.title)
-    })
-  };
 
   const chooseTrack = (track) => {
     setPlayingTrack(track);
@@ -88,9 +79,13 @@ export default function Dashboard({ code }) {
     return () => (cancel = true);
   }, [search, accessToken]);
 
+  const addToPlaylist = (track) => {
+    setPlaylist((playlist) => [...playlist, track]);
+  };
+
   return (
     <div className="dashboard">
-      <form className="dashboard-form" action="">
+      <div className="dashboard-form">
         <input
           className="dashboard-input"
           type="text"
@@ -98,14 +93,22 @@ export default function Dashboard({ code }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-      </form>
+        <Likes playlist={playlist} chooseTrack={chooseTrack} />
+      </div>
       <div className="dashboard-songlist">
+        {search.length === 0 && lyrics.length === 0 ? (
+          <div className="dashboard-browsing-text">
+            Browse your favorite music now !
+          </div>
+        ) : (
+          ""
+        )}
         {searchResults.map((track) => (
           <TrackSearchResult
             track={track}
             key={track.uri}
             chooseTrack={chooseTrack}
-            likesTrack={likesTrack}
+            addToPlaylist={addToPlaylist}
           />
         ))}
         {searchResults.length === 0 && <div className="lyrics">{lyrics}</div>}

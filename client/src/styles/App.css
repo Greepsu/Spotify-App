@@ -1,6 +1,10 @@
 body {
     --green: #0EB048;
+    --white: #F1F1F1;
+    --lightWhite: #d1d1d1;
+    --black: #161616;
     font-family: 'Raleway', sans-serif;
+    background-color: var(--black);
 }
 
 .App {

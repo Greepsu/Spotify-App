@@ -4,7 +4,7 @@
     align-items: center;
     margin: 5px 0;
     cursor: pointer;
-    background: #F1F1F1;
+    background: var(--black);
 }
 
 .track-info {
