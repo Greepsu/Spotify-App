@@ -1,0 +1,13 @@
+body {
+    --green: #0EB048;
+    font-family: 'Raleway', sans-serif;
+}
+
+.App {
+    padding: 10px 20px;
+}
+
+a {
+    text-decoration: none;
+  }
+  

@@ -1,0 +1,26 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 97vh;
+}
+
+.dashboard-input {
+    width: 100%;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.dashboard-songlist {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.lyrics {
+    white-space: pre;
+    text-align: center;
+    font-size: 18px;
+    margin: 10px 0;
+}
+

@@ -1,0 +1,29 @@
+.track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    cursor: pointer;
+    background: #F1F1F1;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+}
+
+.track-cover {
+    width: 64px;
+    height: 64px;
+}
+
+.track-description {
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.track-artist {
+    color: rgb(129, 129, 129);
+}
+
+
