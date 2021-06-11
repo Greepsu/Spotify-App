@@ -1,7 +1,6 @@
-.likes {
+.playlist {
     color: var(--white);
-    width: 50%;
-    border: 1px solid red;
+    width: 300px;
     display: flex;
     flex-direction: column;
 }

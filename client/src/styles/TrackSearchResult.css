@@ -26,4 +26,14 @@
     color: rgb(129, 129, 129);
 }
 
+.track-playlist-button {
+    all: unset;
+}
+
+.track-playlist-button i img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
 

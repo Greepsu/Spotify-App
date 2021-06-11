@@ -6,12 +6,13 @@ import "../styles/Dashboard.css";
 //import Componnets
 import TrackSearchResult from "./TrackSearchResult";
 import Player from "./Player";
-import Likes from "./Likes";
+import Playlist from "./Playlist";
 
 //Import Auth Hooks
 import useAuth from "../Hooks/useAuth";
 
 import axios from "axios";
+
 //Import Spotify Web Api
 import SpotifyWebApi from "spotify-web-api-node";
 const spotifyApi = new SpotifyWebApi({
@@ -80,8 +81,13 @@ export default function Dashboard({ code }) {
   }, [search, accessToken]);
 
   const addToPlaylist = (track) => {
-    setPlaylist((playlist) => [...playlist, track]);
+    setPlaylist((tracks) => [...tracks, track]);
   };
+
+  const removeFromPlaylist = (track) => {
+    const arr = playlist.filter((item) => item !== track);
+    setPlaylist(arr);
+  }
 
   return (
     <div className="dashboard">
@@ -93,8 +99,9 @@ export default function Dashboard({ code }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <Likes playlist={playlist} chooseTrack={chooseTrack} />
       </div>
+      <div className="dashboard-section" >
+      <Playlist playlist={playlist} chooseTrack={chooseTrack} removeFromPlaylist={removeFromPlaylist} />
       <div className="dashboard-songlist">
         {search.length === 0 && lyrics.length === 0 ? (
           <div className="dashboard-browsing-text">
@@ -109,9 +116,12 @@ export default function Dashboard({ code }) {
             key={track.uri}
             chooseTrack={chooseTrack}
             addToPlaylist={addToPlaylist}
+            playlist={playlist}
           />
         ))}
         {searchResults.length === 0 && <div className="lyrics">{lyrics}</div>}
+      </div>
+
       </div>
       <div className="player-container">
         <Player

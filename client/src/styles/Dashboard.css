@@ -9,7 +9,7 @@
 }
 
 .dashboard-input {
-    width: 30%;
+    width: 300px;
     font-size: 24px;
     padding: 10px;
     background-color: var(--black);
@@ -35,9 +35,11 @@
     font-size: 76px;
 }
 
-.likes {
-    color: white;
+.dashboard-section {
+    display: flex;
+    height: 90%;
 }
+
 
 .lyrics {
     white-space: pre;
@@ -46,3 +48,10 @@
     margin: 10px 0;
 }
 
+.player-container {
+    height: 200px;
+}
+
+@media screen and (max-width: 1024px) {
+    .dashboard-section {height: 84%;}
+}
