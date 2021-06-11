@@ -25,6 +25,7 @@ export default function Player({ accessToken, trackUri }) {
                 sliderHandleColor: '#D1D1D1',
                 trackArtistColor: '#D1D1D1',
                 trackNameColor: '#D1D1D1',
+                height: 50
             }}
         />
     )
