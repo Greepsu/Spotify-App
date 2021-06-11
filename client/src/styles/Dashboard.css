@@ -1,57 +1,85 @@
 .dashboard {
-    display: flex;
-    flex-direction: column;
-    height: 97vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .dashboard-form {
-    display: flex;
+  display: flex;
 }
 
 .dashboard-input {
-    width: 300px;
-    font-size: 24px;
-    padding: 10px;
-    background-color: var(--black);
-    color: var(--white);
-    border: none;
-    outline: none;
+  width: 300px;
+  font-size: 24px;
+  padding: 10px;
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  outline: none;
 }
 
 .dashboard-songlist {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    flex-grow: 1;
-    overflow-y: auto;
-    color: var(--lightWhite);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-grow: 1;
+  overflow-y: auto;
+  color: var(--lightWhite);
 }
 
 .dashboard-browsing-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 76px;
 }
 
 .dashboard-section {
-    display: flex;
-    height: 90%;
+  display: flex;
+  height: 90%;
 }
-
 
 .lyrics {
-    white-space: pre;
+  white-space: pre;
+  text-align: center;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 768px) {
+  dashboard-input {
+    margin: 0;
+  }
+
+  .dashboard-songlist {
+    justify-content: flex-start;
+    align-content: flex-start;
+  }
+
+  .dashboard-browsing-text {
+    display: flex;
+    margin-top: 40%;
+    font-size: 32px;
     text-align: center;
-    font-size: 18px;
-    margin: 10px 0;
-}
+  }
 
-.player-container {
-    height: 200px;
-}
+  .playlist-button {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--green);
+    padding: 7px 15px;
+    border-radius: 50px;
+    border: none;
+    font-size: 16px;
+    color: #f1f1f1;
+    font-weight: 600;
+  }
 
-@media screen and (max-width: 1024px) {
-    .dashboard-section {height: 84%;}
+  .dashboard-section {
+    flex-direction: column;
+  }
 }

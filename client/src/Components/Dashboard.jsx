@@ -11,6 +11,9 @@ import Playlist from "./Playlist";
 //Import Auth Hooks
 import useAuth from "../Hooks/useAuth";
 
+//Import windows size tracker
+import { useWindowSize } from "react-use";
+
 import axios from "axios";
 
 //Import Spotify Web Api
@@ -25,7 +28,13 @@ export default function Dashboard({ code }) {
   const [playingTrack, setPlayingTrack] = useState();
   const [lyrics, setLyrics] = useState("");
   const [playlist, setPlaylist] = useState([]);
+  const [toggleMenu, setToggleMenu] = useState(false);
   const accessToken = useAuth(code);
+  const { width } = useWindowSize();
+
+  const breakpoint = 768;
+
+  console.log(toggleMenu);
 
   const chooseTrack = (track) => {
     setPlayingTrack(track);
@@ -85,9 +94,11 @@ export default function Dashboard({ code }) {
   };
 
   const removeFromPlaylist = (track) => {
-    const arr = playlist.filter((item) => item !== track);
-    setPlaylist(arr);
-  }
+    const filteredPlaylist = playlist.filter((item) => item !== track);
+    setPlaylist(filteredPlaylist);
+  };
+
+
 
   return (
     <div className="dashboard">
@@ -100,28 +111,46 @@ export default function Dashboard({ code }) {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <div className="dashboard-section" >
-      <Playlist playlist={playlist} chooseTrack={chooseTrack} removeFromPlaylist={removeFromPlaylist} />
-      <div className="dashboard-songlist">
-        {search.length === 0 && lyrics.length === 0 ? (
-          <div className="dashboard-browsing-text">
-            Browse your favorite music now !
-          </div>
-        ) : (
-          ""
-        )}
-        {searchResults.map((track) => (
-          <TrackSearchResult
-            track={track}
-            key={track.uri}
-            chooseTrack={chooseTrack}
-            addToPlaylist={addToPlaylist}
+      <div className="dashboard-section">
+        {width > breakpoint ? (
+          <Playlist
             playlist={playlist}
+            chooseTrack={chooseTrack}
+            removeFromPlaylist={removeFromPlaylist}
           />
-        ))}
-        {searchResults.length === 0 && <div className="lyrics">{lyrics}</div>}
-      </div>
-
+        ) : (
+          <div className="playlist-responsive-container" >
+            <button className="playlist-button" onClick={() => setToggleMenu(!toggleMenu)}>
+              My playlist
+            </button>
+            <Playlist
+              playlist={playlist}
+              chooseTrack={chooseTrack}
+              removeFromPlaylist={removeFromPlaylist}
+              toggleMenu={toggleMenu}
+            />
+          </div>
+        )}
+        <div className="dashboard-songlist">
+          {search.length === 0 && lyrics.length === 0 ? (
+            <div className="dashboard-browsing-text">
+              Browse your favorite music now !
+            </div>
+          ) : (
+            ""
+          )}
+          {searchResults.map((track) => (
+            <TrackSearchResult
+              track={track}
+              key={track.uri}
+              chooseTrack={chooseTrack}
+              addToPlaylist={addToPlaylist}
+              removeFromPlaylist={removeFromPlaylist}
+              playlist={playlist}
+            />
+          ))}
+          {searchResults.length === 0 && <div className="lyrics">{lyrics}</div>}
+        </div>
       </div>
       <div className="player-container">
         <Player

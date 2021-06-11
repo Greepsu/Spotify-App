@@ -13,8 +13,8 @@ export default function TrackSearchResult({ track, chooseTrack, addToPlaylist, r
     }
 
     return (
-        <div className="track" onClick={handlePlay} >
-            <div className="track-info">
+        <div className="track"  >
+            <div className="track-info" onClick={handlePlay}>
                 <img className="track-cover" src={track.albumsUrl} alt="album cover" />
                 <div className="track-description" >
                     <div className="track-title" >{track.title}</div>
