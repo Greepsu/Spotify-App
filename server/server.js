@@ -12,6 +12,10 @@ app.use(express.json());
 
 app.listen(port, () => console.log(`App running on ${port} port`));
 
+app.get("/", (req, res) => {
+  res.send("home")
+})
+
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken;
   console.log(refreshToken);
@@ -58,3 +62,4 @@ app.post("/login", (req, res) => {
     res.json({ lyrics })
   })
 
+  module.exports = app
