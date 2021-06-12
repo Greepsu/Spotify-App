@@ -12,8 +12,9 @@ import Playlist from "./Playlist";
 import useAuth from "../Hooks/useAuth";
 
 //Import windows size tracker
-import { useWindowSize } from "react-use";
+import { useWindowSize } from "react-use"
 
+//Inport axios
 import axios from "axios";
 
 //Import Spotify Web Api
@@ -29,12 +30,10 @@ export default function Dashboard({ code }) {
   const [lyrics, setLyrics] = useState("");
   const [playlist, setPlaylist] = useState([]);
   const [toggleMenu, setToggleMenu] = useState(false);
+
   const accessToken = useAuth(code);
   const { width } = useWindowSize();
-
   const breakpoint = 768;
-
-  console.log(toggleMenu);
 
   const chooseTrack = (track) => {
     setPlayingTrack(track);
@@ -45,7 +44,7 @@ export default function Dashboard({ code }) {
   useEffect(() => {
     if (!playingTrack) return;
     axios
-      .get("http://localhost:5000/lyrics", {
+      .get(`${process.env.REACT_APP_BASE_URL}/lyrics`, {
         params: {
           track: playingTrack.title,
           artist: playingTrack.artist,
