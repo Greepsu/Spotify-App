@@ -20,6 +20,7 @@ export default function useAuth(code) {
       .catch(() => window.location = "/");
 
       return accessToken
+      // eslint-disable-next-line
   }, [code]);
 
   useEffect(() => {
