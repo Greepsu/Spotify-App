@@ -23,7 +23,7 @@ a {
 }
 
 @media screen and (max-height: 700px) {
-    .App {
-        padding-bottom: 50px;
-    }
+  .App {
+    padding-bottom: 50px;
+  }
 }

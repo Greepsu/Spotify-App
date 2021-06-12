@@ -30,7 +30,7 @@
 }
 
 .dashboard-songlist::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .dashboard-browsing-text {
@@ -54,7 +54,7 @@
 }
 
 .lyrics::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 @media screen and (max-width: 768px) {

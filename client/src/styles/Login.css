@@ -1,36 +1,36 @@
 .login {
-    min-width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
 }
 
 .login-card h1 {
-    font-size: 120px;
-    margin-bottom: 20px;
+  font-size: 120px;
+  margin-bottom: 20px;
 }
 
 .login-card p {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .login-button a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--green);
-    padding: 20px 40px;
-    margin-top: 20px;
-    border-radius: 50px;
-    font-size: 28px;
-    color: #f1f1f1;
-    font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--green);
+  padding: 20px 40px;
+  margin-top: 20px;
+  border-radius: 50px;
+  font-size: 28px;
+  color: #f1f1f1;
+  font-weight: 600;
 }

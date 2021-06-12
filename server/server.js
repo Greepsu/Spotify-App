@@ -1,7 +1,7 @@
-require('dotenv').config()
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const lyricsFinder = require('lyrics-finder')
+const lyricsFinder = require("lyrics-finder");
 const SpotifyWebApi = require("spotify-web-api-node");
 
 const app = express();
@@ -11,10 +11,6 @@ app.use(cors());
 app.use(express.json());
 
 app.listen(port, () => console.log(`App running on ${port} port`));
-
-app.get("/", (req, res) => {
-  res.send("home")
-})
 
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken;
@@ -28,11 +24,11 @@ app.post("/refresh", (req, res) => {
 
   spotifyApi
     .refreshAccessToken()
-    .then(data => {
+    .then((data) => {
       res.json({
         accessToken: data.body.access_token,
-        expiresIn : data.body.expires_in
-      })
+        expiresIn: data.body.expires_in,
+      });
     })
     .catch(() => res.sendStatus(400));
 });
@@ -46,20 +42,22 @@ app.post("/login", (req, res) => {
   });
 
   spotifyApi
-  .authorizationCodeGrant(code)
-  .then(data => {
-    res.json({
+    .authorizationCodeGrant(code)
+    .then((data) => {
+      res.json({
         accessToken: data.body.access_token,
         refreshToken: data.body.refresh_token,
         expiresIn: data.body.expires_in,
-      })
+      });
     })
-      .catch(() => res.sendStatus(400))
-  });
+    .catch(() => res.sendStatus(400));
+});
 
-  app.get('/lyrics', async (req, res) => {
-    const lyrics = await lyricsFinder(req.query.artist, req.query.track) || "No Lyrics found"
-    res.json({ lyrics })
-  })
+app.get("/lyrics", async (req, res) => {
+  const lyrics =
+    (await lyricsFinder(req.query.artist, req.query.track)) ||
+    "No Lyrics found";
+  res.json({ lyrics });
+});
 
-  module.exports = app
+module.exports = app;

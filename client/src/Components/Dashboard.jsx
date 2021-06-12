@@ -12,7 +12,7 @@ import Playlist from "./Playlist";
 import useAuth from "../Hooks/useAuth";
 
 //Import windows size tracker
-import { useWindowSize } from "react-use"
+import { useWindowSize } from "react-use";
 
 //Inport axios
 import axios from "axios";
@@ -97,8 +97,6 @@ export default function Dashboard({ code }) {
     setPlaylist(filteredPlaylist);
   };
 
-
-
   return (
     <div className="dashboard">
       <div className="dashboard-form">
@@ -118,8 +116,11 @@ export default function Dashboard({ code }) {
             removeFromPlaylist={removeFromPlaylist}
           />
         ) : (
-          <div className="playlist-responsive-container" >
-            <button className="playlist-button" onClick={() => setToggleMenu(!toggleMenu)}>
+          <div className="playlist-responsive-container">
+            <button
+              className="playlist-button"
+              onClick={() => setToggleMenu(!toggleMenu)}
+            >
               My playlist
             </button>
             <Playlist
