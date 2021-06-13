@@ -31,6 +31,7 @@ app.post("/refresh", (req, res) => {
       });
     })
     .catch(() => res.sendStatus(400));
+
 });
 
 app.post("/login", (req, res) => {
@@ -54,9 +55,7 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/lyrics", async (req, res) => {
-  const lyrics =
-    (await lyricsFinder(req.query.artist, req.query.track)) ||
-    "No Lyrics found";
+  const lyrics = (await lyricsFinder(req.query.artist, req.query.track)) || "No Lyrics found";
   res.json({ lyrics });
 });
 
