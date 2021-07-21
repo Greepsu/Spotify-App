@@ -7,6 +7,7 @@ import "../styles/Dashboard.css";
 import TrackSearchResult from "./TrackSearchResult";
 import Player from "./Player";
 import Playlist from "./Playlist";
+import PlaylistPage from "./PlaylistPage";
 
 //Import Auth Hooks
 import useAuth from "../Hooks/useAuth";
