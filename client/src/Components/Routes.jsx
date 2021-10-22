@@ -2,7 +2,6 @@ import React from "react";
 
 //Import Components
 import Dashboard from "./Dashboard";
-import PlaylistPage from "./PlaylistPage";
 import ArtistPage from "./ArtistPage";
 
 //Import React-Router
@@ -14,9 +13,6 @@ export default function Routes({ code }) {
       <Switch>
         <Route exact path="/">
           <Dashboard code={code} />
-        </Route>
-        <Route path="/playlist">
-          <PlaylistPage />
         </Route>
         <Route path="/artists/:artist">
           <ArtistPage />
