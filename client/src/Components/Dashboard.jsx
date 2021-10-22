@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { Link } from "react-router-dom";
+
 //Import styles
 import "../styles/Dashboard.css";
 
@@ -7,7 +9,6 @@ import "../styles/Dashboard.css";
 import TrackSearchResult from "./TrackSearchResult";
 import Player from "./Player";
 import Playlist from "./Playlist";
-import PlaylistPage from "./PlaylistPage";
 
 //Import Auth Hooks
 import useAuth from "../Hooks/useAuth";
@@ -23,6 +24,7 @@ import SpotifyWebApi from "spotify-web-api-node";
 const spotifyApi = new SpotifyWebApi({
   clientId: "19cf2729635e42888b4b0356649090bb",
 });
+
 
 export default function Dashboard({ code }) {
   const [search, setSearch] = useState("");
@@ -108,6 +110,7 @@ export default function Dashboard({ code }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
+        <Link to="/playlist">Playlist</Link>
       </div>
       <div className="dashboard-section">
         {width > breakpoint ? (
