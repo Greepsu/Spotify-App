@@ -7,9 +7,6 @@ import "../styles/TrackSearchResult.css";
 import plusIcon from "../assets/icons/plus-icon.svg";
 import minusIcon from "../assets/icons/minus-icon.svg";
 
-//Import React-Router Link
-import { Link } from "react-router-dom";
-
 export default function TrackSearchResult({
   track,
   chooseTrack,
@@ -17,7 +14,6 @@ export default function TrackSearchResult({
   removeFromPlaylist,
   playlist,
 }) {
-
   const handlePlay = () => {
     chooseTrack(track);
   };
@@ -27,14 +23,8 @@ export default function TrackSearchResult({
       <div className="track-info" onClick={handlePlay}>
         <img className="track-cover" src={track.albumsUrl} alt="album cover" />
         <div className="track-description">
-          <div className="track-title">
-            {track.title}
-          </div>
-          <div className="track-artist">
-            <Link to={`/artists/${track.artist}`}>
-              {track.artist}
-            </Link>
-          </div>
+          <div className="track-title">{track.title}</div>
+          <div className="track-artist">{track.artist}</div>
         </div>
       </div>
 
