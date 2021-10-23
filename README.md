@@ -13,7 +13,7 @@ Upload with Vercel
 
 ## ⚡️ Overview
 
-![spotify app overview](client/src/assets/spotify-header.png)
+![spotify app overview](client/src/assets/spotify-overview.png)
 
 ## 🔥 Experience
 
