@@ -1,3 +1,5 @@
+🔴 <span style="color:red">**ATTENTION: This application no longer works because the Spotify Web Player package has been upgraded to a premium version.**</span>
+
 # 🎵 Spotify App
 
 ![spotify app overview](client/src/assets/spotify-header.png)
